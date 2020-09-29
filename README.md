@@ -31,10 +31,10 @@ Things you may want to cover:
 | email            | string | null: false |
 | password         | string | null: false |
 | first_name       | string | null: false |
-| firstkana_name   | string | null: fales |
-| last_name        | string | null: fales |
-| lastkana_name    | string | null: fales |
-| "yyyy/MM/dd"     | string | null: fales |
+| firstkana_name   | string | null: false |
+| last_name        | string | null: false |
+| lastkana_name    | string | null: false |
+| birthday         | string | null: false |
 
 ### Association
 
@@ -45,15 +45,15 @@ Things you may want to cover:
 
 | Column                  | Type       | Options     |
 | ----------------------- | ---------- | ----------- |
-| title                   | string     | null: fales |
-| item_description_column | text       | null: fales |
-| category_id             | integer    | null: false, foreign_key: true|
-| condition_id            | integer    | null: false, foreign_key: true|
-| price                   | string     | null: fales |
-| delivery_id             | integer    | null: false, foreign_key: true|
-| region_id               | integer    | null: false, foreign_key: true|
-| days_to_ship_id         | integer    | null: false, foreign_key: true|
-| user_id                 | references | null: false, foreign_key: true|
+| title                   | string     | null: false |
+| item_description_column | text       | null: false |
+| category_id             | integer    | null: false |
+| condition_id            | integer    | null: false |
+| price                   | integer    | null: false |
+| delivery_id             | integer    | null: false |
+| region_id               | integer    | null: false |
+| days_to_ship_id         | integer    | null: false |
+| user                    | references | null: false, foreign_key: true|
 
 ### Association
 
@@ -64,13 +64,13 @@ Things you may want to cover:
 
 | Column                  | Type    | Options     |
 | ----------------------- | ------  | ----------- |
-| post                    | string  | null: fales |
-| prefecture_id           | integer | null: false, foreign_key: true|
-| city                    | string  | null: fales |
-| town                    | string  | null: fales |
+| post                    | string  | null: false |
+| prefecture_id           | integer | null: false |
+| city                    | string  | null: false |
+| town                    | string  | null: false |
 | building                | string  |             |
-| telephone_number        | string  | null: fales |
-| purchase_id             | integer | null: false, foreign_key: true|
+| telephone_number        | string  | null: false |
+| purchase                | references | null: false, foreign_key: true|
 
 ### Association
 
@@ -80,11 +80,11 @@ Things you may want to cover:
 
 | Column                  | Type   | Options     |
 | ----------------------- | ------ | ----------- |
-| user_id                 | references | null: false, foreign_key: true|
-| item_id                 | references | null: false, foreign_key: true|
+| user                    | references | null: false, foreign_key: true|
+| item                    | references | null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- has_one :adderes
+- has_one :adderess
 - belongs_to :item
