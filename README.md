@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-# users table
+## users table
 
 | Column           | Type   | Options     |
 | ---------------- | ------ | ----------- |
@@ -34,56 +34,57 @@ Things you may want to cover:
 | firstkana_name   | string | null: fales |
 | last_name        | string | null: fales |
 | lastkana_name    | string | null: fales |
-| birth_date       | string | null: fales |
+| "yyyy/MM/dd"     | string | null: fales |
 
 ### Association
 
-- has_many :item
-- has_one :adderes
-- has_one :purchase
+- has_many :items
+- has_many :purchases
 
 ## items table
 
-| Column                  | Type   | Options     |
-| ----------------------- | ------ | ----------- |
-| img_upload              | string | null: fales |
-| title                   | string | null: fales |
-| item_description_column | string | null: fales |
-| category                | string | null: fales |
-| condition               | string | null: fales |
-| price                   | string | null: fales |
+| Column                  | Type       | Options     |
+| ----------------------- | ---------- | ----------- |
+| title                   | string     | null: fales |
+| item_description_column | text       | null: fales |
+| category_id             | integer    | null: false, foreign_key: true|
+| condition_id            | integer    | null: false, foreign_key: true|
+| price                   | string     | null: fales |
+| delivery_id             | integer    | null: false, foreign_key: true|
+| region_id               | integer    | null: false, foreign_key: true|
+| days_to_ship_id         | integer    | null: false, foreign_key: true|
+| user_id                 | references | null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- belongs_to :adderes
 - has_one :purchase
 
 ## adderess table
 
-| Column                  | Type   | Options     |
-| ----------------------- | ------ | ----------- |
-| post                    | string | null: fales |
-| prefecture              | string | null: fales |
-| city                    | string | null: fales |
-| town                    | string | null: fales |
-| building                | string | null: fales |
-| telephone_number        | string | null: fales |
+| Column                  | Type    | Options     |
+| ----------------------- | ------  | ----------- |
+| post                    | string  | null: fales |
+| prefecture_id           | integer | null: false, foreign_key: true|
+| city                    | string  | null: fales |
+| town                    | string  | null: fales |
+| building                | string  |             |
+| telephone_number        | string  | null: fales |
+| purchase_id             | integer | null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :user
-- has_one :purchase
-- has_many :item
+- belongs_to :purchase
 
 ## purchases table
 
 | Column                  | Type   | Options     |
 | ----------------------- | ------ | ----------- |
-| card_number             | string | null: fales |
+| user_id                 | references | null: false, foreign_key: true|
+| item_id                 | references | null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- belongs_to :adderes
+- has_one :adderes
 - belongs_to :item
