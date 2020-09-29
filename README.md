@@ -34,7 +34,7 @@ Things you may want to cover:
 | firstkana_name   | string | null: false |
 | last_name        | string | null: false |
 | lastkana_name    | string | null: false |
-| birthday         | string | null: false |
+| birthday         | date   | null: false |
 
 ### Association
 
@@ -46,7 +46,7 @@ Things you may want to cover:
 | Column                  | Type       | Options     |
 | ----------------------- | ---------- | ----------- |
 | title                   | string     | null: false |
-| item_description_column | text       | null: false |
+| description             | text       | null: false |
 | category_id             | integer    | null: false |
 | condition_id            | integer    | null: false |
 | price                   | integer    | null: false |
